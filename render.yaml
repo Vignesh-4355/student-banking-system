@@ -1,0 +1,26 @@
+services:
+  # Frontend: React Vite Single-Page Application (Static Site)
+  - type: web
+    name: studentbank-frontend
+    runtime: static
+    rootDir: studentbank-frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_BASE_URL
+        sync: false
+
+  # Backend: Java 21 Spring Boot Web Service (Docker)
+  - type: web
+    name: studentbank-backend
+    runtime: docker
+    dockerfilePath: ./studentbank-backend/Dockerfile
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: mysql
+      - key: PORT
+        value: 8080
