@@ -1,0 +1,160 @@
+{
+  "info": {
+    "name": "StudentBank API - Phase 1 Collection",
+    "description": "Postman API test collection for StudentBank Authentication & Profile Management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "0. Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "health"]
+        }
+      }
+    },
+    {
+      "name": "1. Student Registration",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Rahul Sharma\",\n  \"email\": \"rahul.sharma@iitb.ac.in\",\n  \"password\": \"Student@123\",\n  \"phoneNumber\": \"9876543210\",\n  \"studentIdNumber\": \"210050012\",\n  \"universityName\": \"IIT Bombay - Indian Institute of Technology\",\n  \"collegeName\": \"Main Campus, Powai\",\n  \"courseName\": \"B.Tech - Computer Science & Engineering\",\n  \"department\": \"Computer Science & Engineering\",\n  \"academicYear\": \"3rd Year\",\n  \"semester\": 5,\n  \"monthlyAllowance\": 6000.00,\n  \"state\": \"Maharashtra\",\n  \"city\": \"Mumbai\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "2. Student Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"rahul.sharma@iitb.ac.in\",\n  \"password\": \"Student@123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "3. Verify OTP",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"rahul.sharma@iitb.ac.in\",\n  \"otp\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/verify-otp",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "auth", "verify-otp"]
+        }
+      }
+    },
+    {
+      "name": "4. Forgot Password",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"rahul.sharma@iitb.ac.in\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/forgot-password",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "auth", "forgot-password"]
+        }
+      }
+    },
+    {
+      "name": "5. Reset Password",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"rahul.sharma@iitb.ac.in\",\n  \"otp\": \"123456\",\n  \"newPassword\": \"NewStudentPass@123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/reset-password",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "auth", "reset-password"]
+        }
+      }
+    },
+    {
+      "name": "6. Get Student Profile (Protected)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/students/profile",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "students", "profile"]
+        }
+      }
+    },
+    {
+      "name": "7. Update Student Profile (Protected)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwt_token}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Rahul Sharma\",\n  \"phoneNumber\": \"9876543210\",\n  \"collegeName\": \"Main Campus, Powai, Mumbai\",\n  \"universityName\": \"IIT Bombay\",\n  \"courseName\": \"B.Tech CSE\",\n  \"department\": \"CSE\",\n  \"academicYear\": \"4th Year\",\n  \"semester\": 7,\n  \"monthlyAllowance\": 8000.00,\n  \"city\": \"Mumbai\",\n  \"state\": \"Maharashtra\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/students/profile",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "students", "profile"]
+        }
+      }
+    }
+  ]
+}

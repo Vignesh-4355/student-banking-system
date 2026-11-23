@@ -1,0 +1,89 @@
+# ==============================================================================
+# StudentBank Git Ignore Configuration
+# ==============================================================================
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# Crash and JVM Logs
+hs_err_pid*
+replay_pid*
+*.log
+*.log.*
+
+# Database Files
+*.db
+*.mv.db
+*.trace.db
+
+# ------------------------------------------------------------------------------
+# Backend (Java / Spring Boot / Maven)
+# ------------------------------------------------------------------------------
+target/
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.flattened-pom.xml
+
+# ------------------------------------------------------------------------------
+# Frontend (Node.js / React / Vite)
+# ------------------------------------------------------------------------------
+node_modules/
+dist/
+dist-ssr/
+build/
+.pnp
+.pnp.js
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+!.env.example
+
+# NPM / Vite Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ------------------------------------------------------------------------------
+# IDE & Editors
+# ------------------------------------------------------------------------------
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+*.swp
+*.swo
+*~
