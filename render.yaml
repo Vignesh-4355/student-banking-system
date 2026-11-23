@@ -21,6 +21,6 @@ services:
     dockerfilePath: ./studentbank-backend/Dockerfile
     envVars:
       - key: SPRING_PROFILES_ACTIVE
-        value: mysql
+        value: h2
       - key: PORT
         value: 8080
